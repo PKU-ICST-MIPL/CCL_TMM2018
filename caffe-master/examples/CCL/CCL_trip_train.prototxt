@@ -1,0 +1,209 @@
+name: "CCL_trip_divide_ff"
+layer {
+  name: "CCL_trip_image"
+  type: "Data"
+  top: "img_data"
+  top: "img_label"
+  transform_param {
+    mirror: true
+  }
+  data_param {
+    source: "examples/CCL/CCL_train_image_data"
+    batch_size: 80
+  }
+}
+layer {
+  name: "CCL_trip_text"
+  type: "Data"
+  top: "txt_data"
+  top: "txt_label"
+  transform_param {
+    mirror: true
+  }
+  data_param {
+    source: "examples/CCL/CCL_train_text_data"
+    batch_size: 80
+  }
+}
+layer {
+  name: "ip1_img"
+  type: "InnerProduct"
+  bottom: "img_data"
+  top: "ip1_img"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+    num_output: 1024
+    weight_filler {
+      type: "xavier"
+      
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "feat_prob_img"
+  type: "Sigmoid"
+  bottom: "ip1_img"
+  top: "feat_prob_img"
+}
+layer {
+  name: "ip1_txt"
+  type: "InnerProduct"
+  bottom: "txt_data"
+  top: "ip1_txt"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+    num_output: 1024
+    weight_filler {
+      type: "xavier"
+      
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "feat_prob_txt"
+  type: "Sigmoid"
+  bottom: "ip1_txt"
+  top: "feat_prob_txt"
+}
+layer {
+  name: "fuse_img"
+  type: "FuseInnerProduct"
+  bottom: "feat_prob_img"
+  top: "inter1_img"
+  top: "intra1_img"
+  inner_product_param {
+    num_output: 1024
+    weight_filler {
+      type: "xavier"
+      
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "fuse_txt"
+  type: "FuseInnerProduct"
+  bottom: "feat_prob_txt"
+  top: "inter1_txt"
+  top: "intra1_txt"
+  inner_product_param {
+    num_output: 1024
+    weight_filler {
+      type: "xavier"
+      
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "inter_prob_img"
+  type: "Sigmoid"
+  bottom: "inter1_img"
+  top: "inter_prob_img"
+}
+layer {
+  name: "inter_prob_txt"
+  type: "Sigmoid"
+  bottom: "inter1_txt"
+  top: "inter_prob_txt"
+}
+layer {
+  name: "contraloss"
+  type: "SemiContrastLoss"
+  bottom: "inter_prob_img"
+  bottom: "inter_prob_txt"
+  bottom: "img_label"
+  top: "contraloss"
+  semicontrast_loss_param {
+    margin: 1
+    feature_index: 1
+  }
+  include: { phase:TRAIN }
+}
+layer {
+  name: "intra1_img"
+  type: "InnerProduct"
+  bottom: "intra1_img"
+  top: "intra2_img"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+    num_output: 256
+    weight_filler {
+      type: "xavier"
+      
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "intra1_txt"
+  type: "InnerProduct"
+  bottom: "intra1_txt"
+  top: "intra2_txt"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+    num_output: 256
+    weight_filler {
+      type: "xavier"
+      
+    }
+    bias_filler {
+      type: "constant"
+    }
+ }
+}
+layer {
+  name: "softloss_img"
+  type: "SoftmaxWithLoss"
+  bottom: "intra2_img"
+  bottom: "img_label"
+  top: "softloss_img"
+  loss_param {
+    ignore_label: -1
+  }
+  include: { phase:TRAIN }
+}
+
+layer {
+  name: "softloss_txt"
+  type: "SoftmaxWithLoss"
+  bottom: "intra2_txt"
+  bottom: "txt_label"
+  top: "softloss_txt"
+  loss_param {
+    ignore_label: -1
+  }
+  include: { phase:TRAIN }
+}
