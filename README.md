@@ -9,7 +9,7 @@ caffe : run make in ./caffe-master
 
 # Data
 all the feature data and list files should be put in ./deepnet-master/deepnet/examples/CCL/feature.  
-we provide the pascal features and lists we used as an example, which can be download from the [link](http://www.icst.pku.edu.cn/mipl/tiki-download_file.php?fileId=1007) and unzipped to the above path.
+we provide the pascal features and lists we used as an example, which can be download from the [link](http://www.icst.pku.edu.cn/mipl/tiki-download_file.php?fileId=1008) and unzipped to the above path.
 
 # Run CCL
     - cd to ./deepnet-master/deepnet/examples/CCL and execute runall.sh
