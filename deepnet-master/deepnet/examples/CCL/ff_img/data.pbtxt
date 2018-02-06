@@ -1,0 +1,40 @@
+name: "data"
+data {
+  name: "train_data"
+  file_pattern: "train/joint_img_hidden-00001-of-00001.npy"
+  size: 800
+  dimensions: 2048
+}
+data {
+  name: "validation_data"
+  file_pattern: "validation/joint_img_hidden-00001-of-00001.npy"
+  size: 100
+  dimensions: 2048
+}
+data {
+  name: "test_data"
+  file_pattern: "test/joint_img_hidden-00001-of-00001.npy"
+  size: 100
+  dimensions: 2048
+}
+data {
+  name: "train_labels"
+  file_pattern: "train_lab_data.npy"
+  size: 800
+  dimensions: 1
+}
+data {
+  name: "validation_labels"
+  file_pattern: "validation_lab_data.npy"
+  size: 100
+  dimensions: 1
+}
+data {
+  name: "test_labels"
+  file_pattern: "test_lab_data.npy"
+  size: 100
+  dimensions: 1
+}
+gpu_memory: "4G"
+main_memory: "25G"
+prefix: "ff_img/data"

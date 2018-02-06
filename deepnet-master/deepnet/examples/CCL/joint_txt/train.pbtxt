@@ -1,0 +1,13 @@
+optimizer: CD
+stopcondition {
+  all_processed: false
+  steps: 50000
+}
+train: true
+batchsize: 115
+data_proto: "data.pbtxt"
+eval_after: 5000
+checkpoint_after: 50000
+checkpoint_directory: "joint_txt/joint_models"
+randomize: true
+data_proto_prefix: "./joint_txt"

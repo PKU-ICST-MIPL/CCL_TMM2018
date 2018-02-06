@@ -1,0 +1,12 @@
+optimizer: GRADIENT_DESCENT
+stopcondition {
+  all_processed: false
+  steps:10000
+}
+train: true
+batchsize: 100
+data_proto: "rbm_1024_whole/data.pbtxt"
+eval_after: 1000
+checkpoint_after: 10000
+checkpoint_directory: "rbm_1024_whole/data/ae_models"
+randomize: true

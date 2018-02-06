@@ -1,0 +1,39 @@
+name: "data"
+data {
+  name: "train_img_whole_data"
+  file_pattern: "joint_img/data/whole_img/train/image_tied_hidden-00001-of-00001.npy"
+  size: 800
+  dimensions: 1024
+}
+data {
+  name: "val_img_whole_data"
+  file_pattern: "joint_img/data/whole_img/validation/image_tied_hidden-00001-of-00001.npy"
+  size: 100
+  dimensions: 1024
+}
+data {
+  name: "test_img_whole_data"
+  file_pattern: "joint_img/data/whole_img/test/image_tied_hidden-00001-of-00001.npy"
+  size: 100
+  dimensions: 1024
+}
+data {
+  name: "train_img_part_data"
+  file_pattern: "joint_img/data/part_img/train/image_tied_hidden-00001-of-00001.npy"
+  size: 800
+  dimensions: 1024
+}
+data {
+  name: "val_img_part_data"
+  file_pattern: "joint_img/data/part_img/validation/image_tied_hidden-00001-of-00001.npy"
+  size: 100
+  dimensions: 1024
+}
+data {
+  name: "test_img_part_data"
+  file_pattern: "joint_img/data/part_img/test/image_tied_hidden-00001-of-00001.npy"
+  size: 100
+  dimensions: 1024
+}
+gpu_memory: "4G"
+main_memory: "25G"

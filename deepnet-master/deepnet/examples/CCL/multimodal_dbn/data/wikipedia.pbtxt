@@ -1,0 +1,82 @@
+name: "wikipedia"
+data {
+  name: "text_unlabelled"
+  file_pattern: "train_txt_data_part.npy"
+  size: 3999
+  dimensions: 1000
+}
+data {
+  name: "text_labelled"
+  file_pattern: "validation_txt_data_part.npy"
+  size: 500
+  dimensions: 1000
+}
+data {
+  name: "test_txt_data"
+  file_pattern: "test_txt_data_part.npy"
+  size: 499
+  dimensions: 1000
+}
+
+data {
+  name: "image_unlabelled"
+  file_pattern: "train_img_data_part.npy"
+  size: 7841
+  dimensions: 4096
+  stats_file: "imgstats_part.npz"
+}
+data {
+  name: "image_labelled"
+  file_pattern: "validation_img_data_part.npy"
+  size: 982
+  dimensions: 4096
+  stats_file: "imgstats_part.npz"
+}
+data {
+  name: "test_img_data"
+  file_pattern: "test_img_data_part.npy"
+  size: 981
+  dimensions: 4096
+  stats_file: "imgstats_part.npz"
+}
+
+data {
+  name: "train_img_lab_data"
+  file_pattern: "train_img_lab_part.npy"
+  size: 7841
+  dimensions: 1
+}
+data {
+  name: "validation_img_lab_data"
+  file_pattern: "validation_img_lab_part.npy"
+  size: 982
+  dimensions: 1
+}
+data {
+  name: "test_img_lab_data"
+  file_pattern: "test_img_lab_part.npy"
+  size: 981
+  dimensions: 1
+}
+data {
+  name: "train_txt_lab_data"
+  file_pattern: "train_txt_lab_part.npy"
+  size: 3999
+  dimensions: 1
+}
+data {
+  name: "validation_txt_lab_data"
+  file_pattern: "validation_txt_lab_part.npy"
+  size: 500
+  dimensions: 1
+}
+data {
+  name: "test_txt_lab_data"
+  file_pattern: "test_txt_lab_part.npy"
+  size: 499
+  dimensions: 1
+}
+
+gpu_memory: "4G"
+main_memory: "20G"
+prefix: "./feature"

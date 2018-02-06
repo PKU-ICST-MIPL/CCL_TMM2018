@@ -1,0 +1,58 @@
+name: "data"
+data {
+  name: "train_lab_data"
+  file_pattern: "train_img_lab_whole.npy"
+  size: 800
+  dimensions: 1
+}
+data {
+  name: "validation_lab_data"
+  file_pattern: "validation_img_lab_whole.npy"
+  size: 100
+  dimensions: 1
+}
+data {
+  name: "test_lab_data"
+  file_pattern: "test_img_lab_whole.npy"
+  size: 100
+  dimensions: 1
+}
+data {
+  name: "image_hidden2_validation"
+  file_pattern: "image_rbm2_LAST/validation/image_hidden2-*-of-*.npy"
+  size: 100
+  dimensions: 1024
+}
+data {
+  name: "image_hidden2_test"
+  file_pattern: "image_rbm2_LAST/test/image_hidden2-*-of-*.npy"
+  size: 100
+  dimensions: 1024
+}
+data {
+  name: "image_hidden2_train"
+  file_pattern: "image_rbm2_LAST/train/image_hidden2-*-of-*.npy"
+  size: 800
+  dimensions: 1024
+}
+data {
+  name: "text_hidden2_validation"
+  file_pattern: "text_rbm2_LAST/validation/text_hidden2-*-of-*.npy"
+  size: 100
+  dimensions: 1024
+}
+data {
+  name: "text_hidden2_test"
+  file_pattern: "text_rbm2_LAST/test/text_hidden2-*-of-*.npy"
+  size: 100
+  dimensions: 1024
+}
+data {
+  name: "text_hidden2_train"
+  file_pattern: "text_rbm2_LAST/train/text_hidden2-*-of-*.npy"
+  size: 800
+  dimensions: 1024
+}
+gpu_memory: "4G"
+main_memory: "30G"
+prefix: "rbm_1024/data"
