@@ -9,7 +9,7 @@ caffe : run make in ./caffe-master
 
 # Data
 all the feature data and list files should be put in ./deepnet-master/deepnet/examples/CCL/feature.  
-we provide the pascal features and lists we used as an example, which can be download from the [link](http://www.icst.pku.edu.cn/mipl/tiki-download_file.php?fileId=1008) and unzipped to the above path.
+we provide the pascal features and lists we used as an example, which can be download from the [link](http://59.108.48.34/mipl/tiki-download_file.php?fileId=1008) and unzipped to the above path.
 
 # Run CCL
     - cd to ./deepnet-master/deepnet/examples/CCL and execute runall.sh
@@ -18,6 +18,6 @@ we provide the pascal features and lists we used as an example, which can be dow
 # Our Related Work
 If you are interested in cross-media retrieval, you can check our recently published overview paper on IEEE TCSVT:
 
-Yuxin Peng, Xin Huang, and Yunzhen Zhao, "An Overview of Cross-media Retrieval: Concepts, Methodologies, Benchmarks and Challenges", IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2017.[[PDF]](http://www.icst.pku.edu.cn/mipl/tiki-download_file.php?fileId=376)
+Yuxin Peng, Xin Huang, and Yunzhen Zhao, "An Overview of Cross-media Retrieval: Concepts, Methodologies, Benchmarks and Challenges", IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2017.[[PDF]](http://59.108.48.34/mipl/tiki-download_file.php?fileId=376)
 
-Welcome to our [Benchmark Website](http://www.icst.pku.edu.cn/mipl/xmedia) and [Laboratory Homepage](http://www.icst.pku.edu.cn/mipl) for more information about our papers, source codes, and datasets.
+Welcome to our [Benchmark Website](http://59.108.48.34/mipl/xmedia) and [Laboratory Homepage](http://www.icst.pku.edu.cn/mipl) for more information about our papers, source codes, and datasets.
